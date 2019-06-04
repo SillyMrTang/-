@@ -1,0 +1,177 @@
+<!--index.wxml-->
+<view style='height: 100%' wx:if="{{userInfo.role == 0}}">
+    <swiper indicator-dots='true' autoplay='true' interval='3000' circular='true' class='banner'>
+        <swiper-item wx:for='{{bannerList}}' wx:key='index'>
+            <image src="{{item.image}}" class="slide-image" mode='aspectFill'/>
+        </swiper-item>
+    </swiper>
+    <view class='topTabSwiper'>
+        <view class='tab  {{tab_index == 0 ? "tabBorer" : ""}}'  data-index = "0" catchtap='selectTab'>早餐</view>
+        <view class='tab  {{tab_index == 1 ? "tabBorer" : ""}}'  data-index = "1" catchtap='selectTab'>午餐</view>
+        <view class='tab  {{tab_index == 2 ? "tabBorer" : ""}}'  data-index = "2" catchtap='selectTab'>晚餐</view>
+    </view>
+    <swiper 
+      style="height: {{windowHeight - 280}}px"
+      bindchange="tabChange"
+      current="{{tab_index}}"
+    >
+      <!-- 早餐 -->
+      <swiper-item>
+        <scroll-view
+          style="height: 100%;"
+          scroll-y
+          scroll-with-animation
+          scroll-top="{{scrollTop0}}px"
+        >
+          <block wx:for="{{foodsList}}" wx:key="{{index}}">
+            <view class='swiper_con'> 
+              <image src="{{item.dishes.image}}" class="food-image" mode='aspectFill' />
+              <view>{{item.dishes.name}}</view>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!-- 午餐 -->
+      <swiper-item>
+        <scroll-view
+          style="height: 100%;"
+          scroll-y
+          scroll-with-animation
+          scroll-top="{{scrollTop1}}px"
+        >
+          <block wx:for="{{affterList}}" wx:key="{{index}}">
+            <view class='swiper_con'> 
+              <image src="{{item.dishes.image}}" class="food-image" mode='aspectFill' />
+              <view>{{item.dishes.name}}</view>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!-- 晚餐 -->
+      <swiper-item>
+        <scroll-view
+          style="height: 100%;"
+          scroll-y
+          scroll-with-animation
+          scroll-top="{{scrollTop2}}px"
+        >
+          <block wx:for="{{wanList}}" wx:key="{{index}}">
+            <view class='swiper_con'> 
+              <image src="{{item.dishes.image}}" class="food-image" mode='aspectFill' />
+              <view>{{item.dishes.name}}</view>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+    <!-- 预订按钮 -->
+    <view class='footer'>
+    <form report-submit='true' bindsubmit="formSubmit">
+    <view class="stepper">  
+      <!-- 减号 -->  
+        <text class="{{minusStatus}}" bindtap="bindMinus">-</text>  
+      <!-- 数值 -->  
+        <input type="number" disabled='true' value="{{num}}" />  
+      <!-- 加号 -->  
+        <text class="{{minusStatus2}}" bindtap="bindPlus">+</text>
+      </view>
+      <button class='button-canle' wx:if='{{isDing}}' bindtap='cancel' form-type="submit">取消预订</button>
+      <button open-type='getUserInfo' class='button' bindgetuserinfo='submit' wx:else form-type="submit">预订点餐</button>
+      
+      
+    </form>
+    </view>  
+</view>
+<view style='height: 100%' wx:elif="{{userInfo.role == 1}}">
+<view class='select-time'>
+    <view class='label'>供应类型：</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">{{array[index]}}</view>
+    </picker>
+</view>
+ <view class="mdd-box">
+      <view class="contents">
+            <view class="handel">
+               <swiper style="height:{{windowHeight - 50}}px ">
+                  <swiper-item>
+                      <scroll-view  
+                        style="height:100%"
+                        scroll-y 
+                        scroll-with-animation>
+                        <view class='all-dishes'>
+                          <checkbox-group bindchange="checkboxChange" wx:if="{{itemCliked ==0}}">
+                            <label class="checkbox" wx:for="{{list0}}" wx:key="{{index}}">
+                              <checkbox value="{{item.id}}" checked='{{item.checked}}'/>
+                              <view class='dishes'>
+                                <image src='{{item.image}}' class='image'  mode='aspectFill'></image>
+                                <view>{{item.name}}</view>
+                              </view>
+                            </label>
+                          </checkbox-group>
+                          <checkbox-group bindchange="checkboxChange1" wx:if="{{itemCliked ==1}}">
+                            <label class="checkbox" wx:for="{{list1}}" wx:key="{{index}}">
+                              <checkbox value="{{item.id}}" checked='{{item.checked}}'/>
+                              <view class='dishes'>
+                                <image src='{{item.image}}' class='image'  mode='aspectFill'></image>
+                                <view>{{item.name}}</view>
+                              </view>
+                            </label>
+                          </checkbox-group>
+                          <checkbox-group bindchange="checkboxChange2" wx:if="{{itemCliked ==2}}">
+                            <label class="checkbox" wx:for="{{list2}}" wx:key="{{index}}">
+                              <checkbox value="{{item.id}}" checked='{{item.checked}}'/>
+                              <view class='dishes'>
+                                <image src='{{item.image}}' class='image'  mode='aspectFill'></image>
+                                <view>{{item.name}}</view>
+                              </view>
+                            </label>
+                          </checkbox-group>
+                          <checkbox-group bindchange="checkboxChange3" wx:if="{{itemCliked ==3}}">
+                            <label class="checkbox" wx:for="{{list3}}" wx:key="{{index}}">
+                              <checkbox value="{{item.id}}" checked='{{item.checked}}'/>
+                              <view class='dishes'>
+                                <image src='{{item.image}}' class='image'  mode='aspectFill'></image>
+                                <view>{{item.name}}</view>
+                              </view>
+                            </label>
+                          </checkbox-group>
+                          <checkbox-group bindchange="checkboxChange4" wx:if="{{itemCliked ==4}}">
+                            <label class="checkbox" wx:for="{{list4}}" wx:key="{{index}}">
+                              <checkbox value="{{item.id}}" checked='{{item.checked}}'/>
+                              <view class='dishes'>
+                                <image src='{{item.image}}' class='image'  mode='aspectFill'></image>
+                                <view>{{item.name}}</view>
+                              </view>
+                            </label>
+                          </checkbox-group>
+                          <checkbox-group bindchange="checkboxChange5" wx:if="{{itemCliked ==5}}">
+                            <label class="checkbox" wx:for="{{list5}}" wx:key="{{index}}">
+                              <checkbox value="{{item.id}}" checked='{{item.checked}}'/>
+                              <view class='dishes'>
+                                <image src='{{item.image}}' class='image'  mode='aspectFill'></image>
+                                <view>{{item.name}}</view>
+                              </view>
+                            </label>
+                          </checkbox-group>
+                        </view>
+                      </scroll-view>
+                  </swiper-item>
+                </swiper>
+            </view>
+        </view>
+        <view class="leftTabWrap">
+            <view>
+              <view class="wrap">
+                  <view class="leftTab">
+                      <view bindtap="itemTap" class="{{itemCliked==index?'tabItems clicked':'tabItems'}}" data-index="{{index}}" wx:for="{{lists}}">
+                      <text class="{{itemCliked==index?'item itemClicked':'item'}}" id="{{idx}}">{{item.name}}</text>
+                  </view>
+              </view>
+            </view>
+        </view>
+      </view>
+</view>
+
+
+<button class='button2' bindtap='submitButton'>确认菜品</button>
+</view> 

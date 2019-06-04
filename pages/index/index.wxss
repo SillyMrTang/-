@@ -1,0 +1,383 @@
+page{
+  height:100vh;
+  overflow: hidden;
+  background-color: #efeff4
+}
+.banner{
+  width: 100%;
+  height: 468rpx
+}
+.slide-image{
+  width: 750rpx;
+  height: 100%
+}
+
+.tab {
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+  padding: 20rpx 0;
+}
+ 
+.topTabSwiper {
+  background-color: white;
+}
+ 
+.topTabSwiper:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+ 
+.tabBorer {
+  border-bottom: 1px solid #1296db;
+  color: #1296db;
+}
+ 
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden
+}
+.swiper-items{
+  background-color: white;
+  height: 100%
+}
+ 
+.swiper_con {
+  background-color: white;
+  width: 350rpx;
+  height: 440rpx;
+  float: left;
+  border-radius: 10rpx
+}
+.swiper_con:nth-of-type(2n){
+  margin: 10rpx 5rpx
+}
+.swiper_con:nth-of-type(2n + 1){
+  margin: 10rpx 15rpx;
+}
+.swiper_con view{
+  margin-left: 20rpx;
+  font-size: 36rpx;
+  margin-top: 10rpx
+}
+.food-image{
+  width: 350rpx;
+  height: 350rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx 
+
+}
+.button-canle{
+  width: 300rpx;
+  background-color: #e77070;
+  color: white;
+  border-radius: 50rpx
+}
+.button{
+  width: 300rpx;
+  background-color: #1296db;
+  color: white;
+  border-radius: 50rpx
+}
+.stepper {  
+    width: 200rpx;  
+    height: 30px;  
+    /*给主容器设一个边框*/  
+
+    margin:0 auto;
+    margin-left: 55rpx;
+    margin-bottom: 20rpx;
+    float: left
+}  
+  
+/*加号和减号*/  
+.stepper text {  
+    width: 55rpx;  
+    line-height: 55rpx;
+    text-align: center;
+    float: left;
+    border: 1rpx solid #dcdcdc;
+    border-radius: 50rpx;
+    background-color: #1296db;
+    font-size: 32rpx
+   
+}  
+  
+/*数值*/  
+.stepper input {  
+    width: 80rpx;  
+    line-height: 60rpx;
+    float: left;  
+    margin: 0 auto;  
+    text-align: center;  
+    font-size: 16px;
+    color: #1296db;
+    margin-top: 6rpx  
+    /*给中间的input设置左右边框即可*/  
+  
+    
+}  
+  
+/*普通样式*/  
+.stepper .normal{  
+    color: white;
+ 
+}  
+  
+/*禁用样式*/  
+.stepper .disabled{  
+    color: #ccc;  
+}
+.footer{
+  position: fixed;
+  bottom:40rpx;
+  left:50%;
+  margin-left: -155rpx;
+  display: flex;
+  align-items: center;
+
+}
+.scroll-views{
+  height: 100%
+}
+/* pages/myInfo/myinfo.wxss */
+.item {
+  margin-bottom: 20rpx;
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+ 
+.item1 {
+  background: lightblue;
+}
+ 
+.item2 {
+  background: lightgrey;
+}
+ 
+.item3 {
+  background: lightgreen;
+}
+ 
+.item:last-child {
+  margin-bottom: 0;
+}
+ 
+swiper{
+  /* background-color: white */
+}
+ 
+.tab-active {
+  border-bottom: 4rpx solid #1296db;
+  color: #1296db
+}
+ 
+.tab > view {
+  flex: 1;
+  text-align: center;
+  height: 58rpx
+}
+ 
+swiper {
+ 
+  width: 100%;
+}
+ 
+.backTop {
+  position: fixed;
+  right: 30rpx;
+  bottom: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 30;
+  border-radius: 50%;
+}
+.select-time{
+  width: 750rpx;
+  height: 88rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20rpx 0
+}
+.picker{
+  margin-right: 20rpx;
+  font-size: 32rpx;
+}
+.all-dishes{
+  background-color: white;
+}
+.label{
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  
+}
+.dishes{
+  width: 750rpx;
+  display: flex;
+  align-items: center;
+  margin: 20rpx 10rpx
+}
+.dishes view{
+  margin-left: 40rpx;
+  font-size: 36rpx
+}
+.checkbox{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdc;
+  margin-left: 20rpx
+}
+.image{
+  width: 130rpx;
+  height: 130rpx;
+}
+checkbox .wx-checkbox-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 背景的宽 */
+   height: 40rpx; /* 背景的高 */
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: none;
+   background: #1296db;
+   width: 44rpx; /* 背景的宽 */
+   height: 44rpx;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 44rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 44rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 44rpx;
+   text-align: center;
+   font-size:30rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+.button2{
+  position: fixed;
+  bottom:40rpx;
+  left:50%;
+  margin-left: -145rpx;
+  width: 300rpx;
+  background-color: #1296db;
+  color: white;
+  border-radius: 50rpx
+}
+
+/* 厨师选择菜品 */
+.wrap {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1rpx solid #eeeeee;
+}
+
+.tabItems {
+    width: 190rpx;
+    height: 100rpx;
+    background-color: #f9f9f9;
+    border: 1rpx solid #eeeeee;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 35rpx;
+    font-weight: 300;
+    position: relative;
+    left: 1rpx;
+    border-left: none;
+}
+
+.tabItems:first-child {
+    border-top: none;
+}
+
+.item {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.itemClicked {
+    border-left: 8rpx solid #1296db;
+    font-weight: 800;
+}
+
+.clicked {
+    background-color: #ffffff;
+    border-right: 2rpx solid #ffffff;
+}
+
+.mdd-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.leftTabWrap {
+    position: absolute;
+    top: 2rpx;
+    background-color: #f9f9f9;
+    bottom: 0;
+    border-right: 1rpx solid #eeeeee;
+}
+
+.contents {
+    background-color: #f9f9f9;
+    padding-left: 195rpx;
+    border-top: 1px solid #eeeeee;
+    position: absolute;
+    bottom: 0;
+    overflow-y: scroll;
+    top: 0rpx;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.city {
+    background-color: #eeeeee;
+    height: 60rpx;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    border-radius: 5rpx;
+}
+.handel {
+    position: relative;
+    top: 2rpx;
+    background-color: #ffffff;
+    height: 100%
+}
+.imgItem {
+    width: 33.33%;
+    height: 80rpx;
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+    text-align: center;
+    display: inline-block;
+    margin-top: 15rpx
+}
+
+.city {
+    font-size: 30rpx;
+    color: #333333;
+    background-color: #eeeeee;
+    height: 60rpx;
+    padding: 0 10rpx;
+    text-align: center;
+    line-height: 60rpx;
+    border-radius: 5rpx;
+}

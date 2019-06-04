@@ -1,0 +1,35 @@
+<!--pages/myInfo/myinfo.wxml-->
+<view class='header'>
+
+    <image src='{{userInfo.avatarUrl}}'></image>
+    <view wx:if='{{userInfo.nickName}}'>{{userInfo.nickName}}</view>
+    <button open-type='getUserInfo' bindgetuserinfo='submit' wx:else>授权登陆</button>
+</view>
+<!--pages/pictruesign/pictrue.wxml-->
+
+<view class="popup-content"> 
+        <view class="canlendarView">
+            <view class="canlendarTopView">
+            
+                <view class='centerView'>
+                <view class="leftBgView" bindtap="handleCalendar" data-handle="prev">
+                    <view class="leftView"><image src='../image/leftward.png'></image></view>
+                </view>
+                <view class="yearView">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+                <view class="rightBgView" bindtap="handleCalendar" data-handle="next">
+                    <view class="rightView"><image src='../image/right.png'></image></view>
+                </view>
+                </view>
+            </view>
+            <view class="weekBgView">
+                <view class="weekView" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+            </view>
+            <view class="dateBgView">
+                <view wx:if="{{hasEmptyGrid}}" class="dateView" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+                </view>
+                <view class="dateView {{item.status == 1?'today':''}}" wx:for="{{days}}" wx:key="{{index}}">
+                    <view class="datesView">{{item.day}}</view><text class='{{item.status != 1 && item.click == 1?"group-num":""}}'></text>
+                </view>
+            </view>
+        </view>
+    </view>
